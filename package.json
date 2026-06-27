@@ -1,0 +1,18 @@
+{
+  "name": "aethercloud",
+  "version": "1.0.0",
+  "description": "AetherCloud - Cloud File Management System",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd Backend && python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000\" \"cd Frontend && npm run dev\"",
+    "dev:backend": "cd Backend && python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:frontend": "cd Frontend && npm run dev",
+    "build": "cd Frontend && npm run build",
+    "install:all": "npm install && cd Backend && pip install -r requirements.txt && cd ../Frontend && npm install && cd ..",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
